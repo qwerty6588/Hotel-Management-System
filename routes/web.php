@@ -1,42 +1,45 @@
 <?php
 
-use App\Http\Controllers\BookingController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\RoomController;
-use App\Http\Controllers\RoomTypeController;
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use Telegram\Bot\Laravel\Facades\Telegram;
-use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
-
-Route::get('/logout', [\App\Http\Controllers\Auth\LogoutController::class, 'logout']);
-
-
-
 Route::get('/', function () {
-    return view('welcome');
+    return view('home.index');
+})->middleware('auth');
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'store']);
+
+    Route::get('/register', [RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [RegisteredUserController::class, 'store']);
 });
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::resource('rooms', RoomController::class);
-    Route::resource('room-types', RoomTypeController::class);
-    Route::resource('services', ServiceController::class);
-    Route::resource('payments', PaymentController::class);
-    Route::resource('bookings', BookingController::class);
-});
-
-Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
-});
+require __DIR__.'/auth.php';
