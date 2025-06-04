@@ -5,7 +5,7 @@
         <div class="analytics-container">
             <?php $google_analytics_client_id = Voyager::setting("admin.google_analytics_client_id"); ?>
             <?php if(isset($google_analytics_client_id) && !empty($google_analytics_client_id)): ?>
-                
+
                 <div id="embed-api-auth-container"></div>
             <?php else: ?>
                 <p style="border-radius:4px; padding:20px; background:#fff; margin:0; color:#999; text-align:center;">
@@ -472,4 +472,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\hotel-system\vendor\tcg\voyager\src/../resources/views/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\hotel-system\vendor\tcg\voyager\src/../resources/views/home.blade.php ENDPATH**/ ?>

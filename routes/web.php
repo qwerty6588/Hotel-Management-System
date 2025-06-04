@@ -3,6 +3,8 @@
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\HotelController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,15 +19,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-})->middleware('auth');
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
-
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->name('dashboard')->middleware('auth');
+
+
+Route::get('/', function () {
+    return view('home.home');
+})->middleware('auth');
+
+Route::get('/', [HotelController::class, 'home'])->name('home');
+
+
+Route::get('/logout', [\App\Http\Controllers\Auth\LogoutController::class, 'logout']);
+
+Route::get('/search', [HotelController::class, 'search'])->name('search-results');
+
+
+
+Route::get('/api/cities/{country}', [CityController::class, 'getCities']);
+
+Route::get('/hotel/{id}', [HotelController::class, 'show'])->name('hotel.show');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,5 +56,7 @@ Route::middleware('guest')->group(function () {
     Route::post('/register', [RegisteredUserController::class, 'store']);
 });
 
-
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
 require __DIR__.'/auth.php';

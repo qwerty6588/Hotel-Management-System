@@ -116,9 +116,68 @@
     </div>
 </header>
 
+<section id="booking" class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center text-uppercase mb-4">Забронировать отель</h2>
+        <form action="<?php echo e(route('search.hotels')); ?>" method="GET">
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label for="countrySelect" class="form-label">Страна</label>
+                    <select name="country_id" id="countrySelect" class="form-select" required>
+                        <option value="">Выберите страну</option>
+                        <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($country->id); ?>"><?php echo e($country->name); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label for="citySelect" class="form-label">Город</label>
+                    <select name="city_id" id="citySelect" class="form-select" required>
+                        <option value="">Сначала выберите страну</option>
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <label for="check_in" class="form-label">Дата заезда</label>
+                    <input type="date" name="check_in" id="check_in" class="form-control" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="check_out" class="form-label">Дата выезда</label>
+                    <input type="date" name="check_out" id="check_out" class="form-control" required>
+                </div>
+                <div class="col-md-2">
+                    <label for="guests" class="form-label">Гостей</label>
+                    <input type="number" name="guests" id="guests" class="form-control" min="1" required>
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="submit" class="btn btn-warning w-100">Поиск</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+
 <!-- Bootstrap Bundle JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+<script>
+    document.getElementById('countrySelect').addEventListener('change', function () {
+        const countryId = this.value;
+        fetch(`/api/cities/${countryId}`)
+            .then(res => res.json())
+            .then(data => {
+                const citySelect = document.getElementById('citySelect');
+                citySelect.innerHTML = '<option value="">Выберите город</option>';
+                data.forEach(city => {
+                    const option = document.createElement('option');
+                    option.value = city.id;
+                    option.textContent = city.name;
+                    citySelect.appendChild(option);
+                });
+            });
+    });
+</script>
+
 </html>
 
 <!-- Services-->
@@ -260,10 +319,10 @@
 </section>
 
 <!-- About-->
-<section class="page-section bg-light" id="testimonials">
+<section class="page-section bg-light" id="reviews">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">Guest Testimonials</h2>
+            <h2 class="section-heading text-uppercase">Guest Reviews</h2>
             <h3 class="section-subheading text-muted">What our guests are saying about their stay</h3>
         </div>
         <div class="row">
@@ -651,4 +710,4 @@
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
-<?php /**PATH C:\xampp4\htdocs\hotel-system\resources\views/home/index.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp4\htdocs\hotel-system\resources\views/home/home.blade.php ENDPATH**/ ?>

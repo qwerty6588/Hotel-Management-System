@@ -29,10 +29,10 @@
             <?php endif; ?>
 
             <!-- Page Content -->
-            <main>
-                <?php echo e($slot); ?>
+            <div class="container">
+                <?php echo $__env->yieldContent('content'); ?>
+            </div>
 
-            </main>
         </div>
     </body>
 </html>

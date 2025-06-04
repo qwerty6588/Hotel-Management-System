@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    
+
     <div class="modal modal-danger fade" tabindex="-1" id="delete_bread_modal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -247,4 +247,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\e-commerce\vendor\tcg\voyager\src/../resources/views/tools/database/index.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\e-commerce\vendor\tcg\voyager\src/../resources/views/tools/database/home.blade.php ENDPATH**/ ?>
