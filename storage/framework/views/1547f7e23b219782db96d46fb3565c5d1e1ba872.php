@@ -45,7 +45,7 @@
                                 </a>
                             </div>
                             <div class="col-md-6">
-                                <a href="https://voyager.devdojo.com/" target="_blank" class="voyager-link" style="background-image:url('<?php echo e(voyager_asset('images/compass/voyager-home.jpg')); ?>')">
+                                <a href="https://voyager.devdojo.com/" target="_blank" class="voyager-link" style="background-image:url('<?php echo e(voyager_asset('images/compass/voyager-hotel.jpg')); ?>')">
                                     <span class="resource_label"><i class="voyager-browser"></i> <span class="copy"><?php echo e(__('voyager::compass.links.voyager_homepage')); ?></span></span>
                                 </a>
                             </div>
@@ -148,4 +148,6 @@
     </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\hotel-system\vendor\tcg\voyager\src/../resources/views/compass/home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\hotel-system\vendor\tcg\voyager\src/../resources/views/compass/
+ *
+ * hotel.blade.php ENDPATH**/ ?>

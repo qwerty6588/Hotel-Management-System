@@ -132,9 +132,9 @@ return [
                 'classes'    => 'class-full-of-rum',
                 'icon_class' => 'voyager-person',
             ],
-            'voyager::generic.home' => [
+            'voyager::generic.hotel' => [
                 'route'        => '/',
-                'icon_class'   => 'voyager-home',
+                'icon_class'   => 'voyager-hotel',
                 'target_blank' => true,
             ],
             'voyager::generic.logout' => [

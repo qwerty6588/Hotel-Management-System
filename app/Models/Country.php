@@ -7,13 +7,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Country extends Model
 {
-    use HasFactory;
-
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'code'];
 
     public function cities()
     {
         return $this->hasMany(City::class);
+    }
+
+    public function hotels()
+    {
+        return $this->hasMany(Hotel::class);
     }
 }
 

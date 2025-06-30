@@ -472,4 +472,4 @@
 
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\e-commerce\vendor\tcg\voyager\src/../resources/views/home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\e-commerce\vendor\tcg\voyager\src/../resources/views/hotel.blade.php ENDPATH**/ ?>

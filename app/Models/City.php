@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class City extends Model
 {
-    use HasFactory;
-
     protected $fillable = ['name', 'country_id'];
 
     public function country()
@@ -16,10 +14,9 @@ class City extends Model
         return $this->belongsTo(Country::class);
     }
 
-
-    public function hotel()
+    public function hotels()
     {
         return $this->hasMany(Hotel::class);
     }
-
 }
+

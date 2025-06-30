@@ -15,29 +15,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
-</head>
-<body id="page-top">
-<!-- Navigation-->
-<<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Hotel Management System</title>
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" />
-
-    <!-- Font Awesome Icons -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-    <!-- Bootstrap & Custom CSS -->
-    <link href="css/styles.css" rel="stylesheet" />
 
     <style>
         .masthead {
@@ -100,7 +77,7 @@
                     <?php if(auth()->guard()->check()): ?>
                         <a class="nav-link" href="#"><?php echo e(Auth::user()->name); ?></a>
                     <?php else: ?>
-                        <a class="nav-link" href="<?php echo e(route('login')); ?>">Log in</a>
+                       <a class="nav-link" href="<?php echo e(route('login')); ?>">Log in</a>
                     <?php endif; ?>
                 </li>
 
@@ -118,38 +95,38 @@
 
 <section id="booking" class="py-5 bg-light">
     <div class="container">
-        <h2 class="text-center text-uppercase mb-4">Забронировать отель</h2>
+        <h2 class="text-center text-uppercase mb-4">Booking a hotel</h2>
         <form action="<?php echo e(route('search-results')); ?>" method="GET">
         <div class="row g-3">
                 <div class="col-md-4">
-                    <label for="countrySelect" class="form-label">Страна</label>
+                    <label for="countrySelect" class="form-label">Country</label>
                     <select name="country_id" id="countrySelect" class="form-select" required>
-                        <option value="">Выберите страну</option>
+                        <option value="">Select a country</option>
                         <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <option value="<?php echo e($country->id); ?>"><?php echo e($country->name); ?></option>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </select>
                 </div>
                 <div class="col-md-4">
-                    <label for="citySelect" class="form-label">Город</label>
+                    <label for="citySelect" class="form-label">City</label>
                     <select name="city_id" id="citySelect" class="form-select" required>
-                        <option value="">Сначала выберите страну</option>
+                        <option value="">First, select the country</option>
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label for="check_in" class="form-label">Дата заезда</label>
+                    <label for="check_in" class="form-label">Check in date</label>
                     <input type="date" name="check_in" id="check_in" class="form-control" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="check_out" class="form-label">Дата выезда</label>
+                    <label for="check_out" class="form-label">Departure date</label>
                     <input type="date" name="check_out" id="check_out" class="form-control" required>
                 </div>
                 <div class="col-md-2">
-                    <label for="guests" class="form-label">Гостей</label>
+                    <label for="guests" class="form-label">Guests</label>
                     <input type="number" name="guests" id="guests" class="form-control" min="1" required>
                 </div>
                 <div class="col-md-2 d-flex align-items-end">
-                    <button type="submit" class="btn btn-warning w-100">Поиск</button>
+                    <button type="submit" class="btn btn-warning w-100">Search</button>
                 </div>
             </div>
         </form>
@@ -170,7 +147,7 @@
             fetch(`/api/cities/${countryId}`)
                 .then(res => res.json())
                 .then(data => {
-                    citySelect.innerHTML = '<option value="">Выберите город</option>';
+                    citySelect.innerHTML = '<option value="">Choose a city</option>';
                     data.forEach(city => {
                         const option = document.createElement('option');
                         option.value = city.id;
@@ -179,11 +156,11 @@
                     });
                 })
                 .catch(error => {
-                    citySelect.innerHTML = '<option value="">Ошибка загрузки</option>';
+                    citySelect.innerHTML = '<option value="">Download error</option>';
                     console.error('Ошибка при загрузке городов:', error);
                 });
         } else {
-            citySelect.innerHTML = '<option value="">Сначала выберите страну</option>';
+            citySelect.innerHTML = '<option value="">First select the country</option>';
         }
     });
 </script>
@@ -484,15 +461,15 @@
 <footer class="footer py-4">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-4 text-lg-start">Copyright &copy; Your Website 2023</div>
+            <div class="col-lg-4 text-lg-start"></div>
             <div class="col-lg-4 my-3 my-lg-0">
                 <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                 <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <div class="col-lg-4 text-lg-end">
-                <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
-                <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                <a class="link-dark text-decoration-none me-3" href="#!"></a>
+                <a class="link-dark text-decoration-none" href="#!">    </a>
             </div>
         </div>
     </div>
@@ -719,4 +696,4 @@
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
-<?php /**PATH C:\xampp4\htdocs\hotel-system\resources\views/home/home.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp4\htdocs\hotel-system\resources\views/hotel/hotel.blade.php ENDPATH**/ ?>

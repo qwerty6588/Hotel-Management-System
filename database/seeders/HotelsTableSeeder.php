@@ -12,9 +12,6 @@ class HotelsTableSeeder extends Seeder
 {
     public function run()
     {
-        $countries = Country::pluck('id')->toArray();
-        $cities = City::pluck('id')->toArray();
-
         $hotelNames = [
             'Sunshine Resort',
             'Mountain View Hotel',
@@ -25,19 +22,35 @@ class HotelsTableSeeder extends Seeder
             'Desert Oasis',
             'Skyline Hotel',
             'Garden Paradise',
-            'Urban Stay'
+            'Urban Stay',
+            'Royal Palace Hotel',
+            'Golden Sands Resort',
+            'Blue Lagoon Inn',
+            'Amber Hills Lodge',
+            'Emerald Bay Hotel',
+            'The White Orchid',
+            'Crystal Tower Hotel',
+            'Grand Heritage Inn',
+            'Ocean Breeze Resort',
+            'Velvet Sunset'
         ];
 
         foreach ($hotelNames as $name) {
-            Hotel::create([
+            $city = \App\Models\City::inRandomOrder()->with('country')->first();
+
+            if (!$city || !$city->country) continue;
+
+            \App\Models\Hotel::create([
                 'name' => $name,
                 'description' => 'A wonderful place to stay at ' . $name . '.',
-                'city_id' => fake()->randomElement($cities),
-                'country_id' => fake()->randomElement($countries),
-                'rating' => fake()->randomFloat(1, 5, 10), // 5.0 - 10.0
-                'price_per_night' => fake()->numberBetween(3000, 15000), // рубли
+                'city_id' => $city->id,
+                'country_id' => $city->country_id,
+                'rating' => fake()->randomFloat(1, 6.0, 9.9),
+                'price_per_night' => fake()->numberBetween(3000, 25000),
+                'stars' => rand(1, 5),
                 'image' => $name . '.jpg',
             ]);
         }
     }
+
 }

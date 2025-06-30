@@ -18,13 +18,15 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->foreignId('city_id')->constrained()->onDelete('cascade');
-            $table->foreignId('country_id')->constrained()->cascadeOnDelete();
-            $table->string('address')->nullable();
-            $table->decimal('rating', 3, 1)->default(0);
-            $table->decimal('price_per_night', 8, 2)->default(0);
+            $table->foreignId('country_id')->constrained()->onDelete('cascade');
             $table->string('image')->nullable();
+            $table->decimal('rating', 3, 1)->default(0);
+            $table->unsignedInteger('price_per_night')->default(0);
+            $table->tinyInteger('stars')->unsigned()->nullable();
+
             $table->timestamps();
         });
+
     }
 
 

@@ -36,4 +36,4 @@ new Vue({
 </script>
 <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\hotel-system\vendor\tcg\voyager\src/../resources/views/media/home.blade.php ENDPATH**/ ?>
+<?php echo $__env->make('voyager::master', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\xampp4\htdocs\hotel-system\vendor\tcg\voyager\src/../resources/views/media/hotel.blade.php ENDPATH**/ ?>

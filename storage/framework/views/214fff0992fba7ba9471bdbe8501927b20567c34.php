@@ -710,4 +710,4 @@
 <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
-<?php /**PATH C:\xampp4\htdocs\hotel-system\resources\views/home/home.blade.php ENDPATH**/ ?>
+<?php /**PATH C:\xampp4\htdocs\hotel-system\resources\views/hotel/hotel.blade.php ENDPATH**/ ?>

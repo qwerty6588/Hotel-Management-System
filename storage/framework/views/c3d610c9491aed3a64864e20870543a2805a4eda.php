@@ -57,7 +57,7 @@
 <?php $attributes = $attributes->except(collect($constructor->getParameters())->map->getName()->all()); ?>
 <?php endif; ?>
 <?php $component->withAttributes(['align' => 'right','width' => '48']); ?>
-                     <?php $__env->slot('trigger', null, []); ?> 
+                     <?php $__env->slot('trigger', null, []); ?>
                         <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             <div><?php echo e(Auth::user()->name ?? '??'); ?></div>
 
@@ -68,7 +68,7 @@
                             </div>
                         </button>
 
-                        <a href="<?php echo e(route('home')); ?>" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-black-700 focus:outline-none transition ease-in-out duration-150">
+                        <a href="<?php echo e(route('hotel')); ?>" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-blue-600 hover:bg-black-700 focus:outline-none transition ease-in-out duration-150">
                            Back Home
                         </a>
 
@@ -76,7 +76,7 @@
 
 
 
-                     <?php $__env->slot('content', null, []); ?> 
+                     <?php $__env->slot('content', null, []); ?>
                         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.dropdown-link','data' => ['href' => route('profile.edit')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? (array) $attributes->getIterator() : [])); ?>
 <?php $component->withName('dropdown-link'); ?>

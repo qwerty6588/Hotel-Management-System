@@ -15,13 +15,17 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('booking_id')->unique();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->decimal('price', 8, 2);
-            $table->string('payment_method');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('hotel_id')->constrained()->onDelete('cascade');
+            $table->date('check_in');
+            $table->date('check_out');
+            $table->integer('guests');
+            $table->decimal('total_price', 10, 2);
+            $table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending');
             $table->timestamps();
         });
     }
+
 
 
     /**
