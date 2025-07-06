@@ -101,7 +101,6 @@
             function updateTotalPrice() {
                 const inDate = new Date(checkIn.value);
                 const outDate = new Date(checkOut.value);
-
                 if (!isNaN(inDate.getTime()) && !isNaN(outDate.getTime()) && outDate > inDate) {
                     const diffTime = outDate - inDate;
                     const nights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));

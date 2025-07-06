@@ -60,6 +60,7 @@ Route::get('/api/cities/{country}', [CityController::class, 'getCities']);
 
 
 
+
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
