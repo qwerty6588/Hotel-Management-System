@@ -92,13 +92,13 @@
             });
         })();
 
-        // Автоматическое форматирование паспорта
+
         const passportInput = document.getElementById('passport');
         passportInput.addEventListener('input', function () {
             let value = this.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
 
             let letters = value.slice(0, 2).replace(/[^A-Z]/g, '');
-            let numbers = value.slice(2).replace(/[^0-9]/g, '').slice(0, 7); // максимум 7 цифр
+            let numbers = value.slice(2).replace(/[^0-9]/g, '').slice(0, 7);
 
             this.value = (letters + numbers).slice(0, 9);
         });
