@@ -21,7 +21,7 @@
                     <h2 class="text-center fw-bold mb-4">{{ $hotel->name }}</h2>
 
                     <div class="row">
-                        <!-- Левая сторона: форма оплаты -->
+
                         <div class="col-lg-8">
                             <div class="card shadow-sm mb-4">
                                 <div class="card-body p-4">
@@ -79,7 +79,7 @@
                             </div>
                         </div>
 
-                        <!-- Правая сторона: детали оплаты -->
+
                         <div class="col-lg-4">
                             <div class="card border-primary">
                                 <div class="card-header bg-primary text-white fw-bold text-center">Детали оплаты</div>

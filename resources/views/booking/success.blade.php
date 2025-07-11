@@ -12,7 +12,7 @@
         </div>
 
         <div class="row g-4">
-            <!-- Детали бронирования -->
+
             <div class="col-md-6">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-light">
@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <!-- Адрес/контакт -->
+
             <div class="col-md-6">
                 <div class="card shadow-sm border-0">
                     <div class="card-header bg-light">
