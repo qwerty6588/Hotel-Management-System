@@ -21,7 +21,8 @@ class SendTelegramNotification
     {
         $user = $event->user;
         $ip = Request::ip();
-        $time = Carbon::now()->format('Y-m-d H:i:s');
+        $time = Carbon::now()->format('d/m/y H:i:s');
+        $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? 'N/A';
         $text = '';
 
         if ($event instanceof Registered) {
@@ -31,11 +32,12 @@ class SendTelegramNotification
                 . "📍 *IP:* `{$ip}`\n"
                 . "⏰ *Время:* `{$time}`";
         } elseif ($event instanceof Login) {
-            $text = "✅ *Вход в систему*\n"
-                . "👤 *Имя:* `{$user->name}`\n"
+            $text = "✅ *Log in to the system*\n"
+                . "👤 *Name:* `{$user->name}`\n"
                 . "📧 *Email:* `{$user->email}`\n"
                 . "📍 *IP:* `{$ip}`\n"
-                . "⏰ *Время:* `{$time}`";
+                . "⏰ *Time:* `{$time}`\n"
+                . "👂 *User Agent:* `{$userAgent}`\n";
         }
 
         if ($text) {

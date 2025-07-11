@@ -94,7 +94,7 @@
 
                                         <div class="d-flex justify-content-between align-items-center">
                                             <span class="fw-bold text-primary fs-5">Цена за ночь {{ number_format($hotel->price_per_night, 0, ',', ' ') }} $</span>
-                                            <a href="{{ route('booking.create', $hotel->id) }}" class="btn btn-outline-primary btn-sm">Забронировать</a>
+                                            <a href="{{ route('booking.details', $hotel->id) }}" class="btn btn-outline-primary btn-sm">Забронировать</a>
                                         </div>
                                     </div>
                                 </div>

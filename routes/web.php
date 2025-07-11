@@ -28,11 +28,14 @@ Route::get('/', [App\Http\Controllers\MainController::class, 'index']);
 Route::middleware(['auth'])->group(function () {
     Route::get('/booking/{hotel}', [BookingController::class, 'create'])->name('booking.create');
     Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
-    Route::get('/booking/success/{id}', [BookingController::class, 'success'])->name('booking.success');
     Route::get('/booking/{hotel}/payment', [BookingController::class, 'showPaymentForm'])->name('booking.payment');
     Route::post('/booking/{hotel}/pay', [BookingController::class, 'processPayment'])->name('booking.pay');
-
+    Route::get('/booking/{hotel}/details', [BookingController::class, 'showGuestForm'])->name('booking.details');
+    Route::post('/booking/{hotel}/details', [BookingController::class, 'submitGuestForm'])->name('booking.details.submit');
+    Route::get('/booking/{id}/invoice', [BookingController::class, 'downloadInvoice'])->name('booking.invoice');
+    Route::get('/booking/success/{id}', [BookingController::class, 'success'])->name('booking.success');
 });
+
 
 
 

@@ -94,53 +94,54 @@
     </div>
 </header>
 
-<section id="booking" class="py-5 bg-gradient bg-light">
+<section id="booking" class="py-5 bg-light">
     <div class="container">
-        <div class="card shadow-lg border-0 rounded-4">
-            <div class="card-body p-4">
-                <h2 class="text-center text-primary mb-4 text-uppercase">Find Your Perfect Hotel</h2>
-                <form action="<?php echo e(route('search-results')); ?>" method="GET">
-                    <div class="row g-3">
-                        <div class="col-md-4">
-                            <label for="countrySelect" class="form-label fw-semibold">
-                                <i class="bi bi-geo-alt-fill me-1 text-danger"></i>Country
-                            </label>
-                            <select name="country_id" id="countrySelect" class="form-select" required>
-                                <option value="">Select a country</option>
-                                <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e($country->id); ?>"><?php echo e($country->name); ?></option>
-                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                            </select>
-                        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-5">
+                        <h2 class="text-center text-primary mb-4 text-uppercase fw-bold">Find the perfect hotel</h2>
+                        <form action="<?php echo e(route('search-results')); ?>" method="GET">
+                            <div class="row g-4 align-items-end">
+                                <!-- Страна -->
+                                <div class="col-md-4">
+                                    <label for="countrySelect" class="form-label fw-semibold">
+                                        <i class="bi bi-geo-alt-fill me-1 text-danger"></i>Сountry
+                                    </label>
+                                    <select name="country_id" id="countrySelect" class="form-select shadow-sm" required>
+                                        <option value="">Select a country</option>
+                                        <?php $__currentLoopData = $countries; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $country): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                            <option value="<?php echo e($country->id); ?>"><?php echo e($country->name); ?></option>
+                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                    </select>
+                                </div>
 
-                        <div class="col-md-4">
-                            <label for="citySelect" class="form-label fw-semibold">
-                                <i class="bi bi-building me-1 text-secondary"></i>City
-                            </label>
-                            <select name="city_id" id="citySelect" class="form-select" required>
-                                <option value="">First, select a country</option>
-                            </select>
-                        </div>
+                                <!-- Город -->
+                                <div class="col-md-4">
+                                    <label for="citySelect" class="form-label fw-semibold">
+                                        <i class="bi bi-building me-1 text-secondary"></i>City
+                                    </label>
+                                    <select name="city_id" id="citySelect" class="form-select shadow-sm" required>
+                                        <option value="">First select the country</option>
+                                    </select>
+                                </div>
 
-
-                        <div class="col-md-2">
-                            <label for="guests" class="form-label fw-semibold">
-                                <i class="bi bi-people-fill me-1 text-dark"></i>Guests
-                            </label>
-                            <input type="number" name="guests" id="guests" class="form-control" min="1" required>
-                        </div>
-
-                        <div class="col-md-2 d-flex align-items-end">
-                            <button type="submit" class="btn btn-primary w-100">
-                                <i class="bi bi-search me-1"></i>Search
-                            </button>
-                        </div>
+                                <!-- Кнопка -->
+                                <div class="col-md-4 text-md-end">
+                                    <button type="submit" class="btn btn-primary btn-lg w-100 mt-3 mt-md-0">
+                                        <i class="bi bi-search me-1"></i>Search
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
+
 
 
 
