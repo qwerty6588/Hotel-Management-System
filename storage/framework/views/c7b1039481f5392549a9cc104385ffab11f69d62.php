@@ -6,15 +6,15 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title> Hotel Management System</title>
-    <!-- Favicon-->
+
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
+
     <script src="<?php echo e(asset('js/scripts.js')); ?>"></script>
-    <!-- Google fonts-->
+
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
+
     <link href="css/styles.css" rel="stylesheet" />
 
     <style>
@@ -57,7 +57,6 @@
 </head>
 <body id="page-top">
 
-<!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
         <a class="navbar-brand" href="#page-top">Start Bootstrap</a>
@@ -87,7 +86,7 @@
     </div>
 </nav>
 
-<!-- Masthead -->
+
 <header class="masthead">
     <div class="container">
         <div class="masthead-subheading">Welcome Hotel Management</div>
@@ -103,7 +102,7 @@
                         <h2 class="text-center text-primary mb-4 text-uppercase fw-bold">Find the perfect hotel</h2>
                         <form action="<?php echo e(route('search-results')); ?>" method="GET">
                             <div class="row g-4 align-items-end">
-                                <!-- Страна -->
+
                                 <div class="col-md-4">
                                     <label for="countrySelect" class="form-label fw-semibold">
                                         <i class="bi bi-geo-alt-fill me-1 text-danger"></i>Сountry
@@ -116,7 +115,7 @@
                                     </select>
                                 </div>
 
-                                <!-- Город -->
+
                                 <div class="col-md-4">
                                     <label for="citySelect" class="form-label fw-semibold">
                                         <i class="bi bi-building me-1 text-secondary"></i>City
@@ -126,7 +125,7 @@
                                     </select>
                                 </div>
 
-                                <!-- Кнопка -->
+
                                 <div class="col-md-4 text-md-end">
                                     <button type="submit" class="btn btn-primary btn-lg w-100 mt-3 mt-md-0">
                                         <i class="bi bi-search me-1"></i>Search
